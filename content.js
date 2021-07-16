@@ -107,14 +107,9 @@ var REPLACE = ["🌸"];
 //In this tab, listen for a message
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  let userWords = request.message;
-  console.log("🔥" + userWords);
-  for (var i = 0; i < userWords.length; i++) {
-    MATCH.push(userWords[i]);
-    walk(document.body);
-    console.log("🍓");
-  }
-
+  let userWords = JSON.parse(request.message);
+  MATCH = MATCH.concat(userWords);
+  walk(document.body);
   // Callback
   sendResponse({ message: "Content script has received that message ⚡" });
 });
