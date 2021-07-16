@@ -41,10 +41,9 @@ inputBtn.addEventListener("click", function () {
 //   );
 // });
 
-var aValue = localStorage.getItem("newWords");
-console.log("aValue : " + aValue);
-console.log("Hello : 🥳");
+let localStorageContent = localStorage.getItem("newWords");
+console.log("local storage content : " + localStorageContent);
 
-chrome.runtime.sendMessage({ message: aValue }, (response) => {
-  console.log(response.words);
+chrome.runtime.sendMessage({ message: localStorageContent }, (response) => {
+  console.log("reponse in pop up : " + response.words);
 });

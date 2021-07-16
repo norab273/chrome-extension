@@ -106,19 +106,18 @@
   //   }
   // });
 
-  // let theAddedWords = [];
-  // chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  //   console.log("content 🐶" + message.addedWords);
-  //   theAddedWords.push(message.addedWords);
-  //   return true;
-  // });
-
   chrome.runtime.onMessage.addListener(function (
     request,
     sender,
     sendResponse
   ) {
-    console.log(request);
+    console.log(request.message + "🐼");
+    let newBadWords = request.message;
+    console.log("👺 newbadwords : " + newBadWords);
+    for (let index = 0; index < newBadWords.length; index++) {
+      BLACKLISTED.push(index);
+    }
+
     console.log(request.message + "🐼");
     // Callback
     sendResponse({ message: "Content script has received that message ⚡" });
