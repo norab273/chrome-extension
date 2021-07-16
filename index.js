@@ -29,20 +29,4 @@ inputBtn.addEventListener("click", function () {
   inputWord.value = "";
   localStorage.setItem("newWords", JSON.stringify(newWords));
   render(newWords);
-  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    // Fetch the current tab
-    chrome.tabs.sendMessage(tabs[0].id, { message: newWords });
-  });
-  console.log("🌸 newWords : " + newWords);
-  console.log("message 🚁 : " + message);
-  // sendToContentScript(newWords);
-  // console.log("🌸 newWords : " + newWords);
-  // console.log("send 🚁 : " + sendToContentScript(newWords));
 });
-
-// function sendMessageToContentScript(messageSent) {
-//   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-//     // Fetch the current tab
-//     chrome.tabs.sendMessage(tabs[0].id, { message: messageSent });
-//   });
-// }

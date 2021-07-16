@@ -98,13 +98,13 @@
     ],
     badWords = new RegExp("\\b" + BLACKLISTED.join("|") + "\\b", "gi");
 
-  chrome.runtime.onMessage.addListener(function (request) {
-    let newBadWords = request.message;
-    console.log("👺 newbadwords : " + newBadWords);
-    for (let index = 0; index < newBadWords.length; index++) {
-      newBadWords.push(index);
-    }
-  });
+  // chrome.runtime.onMessage.addListener(function (request) {
+  //   let newBadWords = request.message;
+  //   console.log("👺 newbadwords : " + newBadWords);
+  //   for (let index = 0; index < newBadWords.length; index++) {
+  //     newBadWords.push(index);
+  //   }
+  // });
 
   //Text
   function replaceText(node) {
