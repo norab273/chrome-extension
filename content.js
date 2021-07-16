@@ -1,3 +1,4 @@
+console.log("🐶");
 (function () {
   "use strict";
 
@@ -105,6 +106,12 @@
   //     newBadWords.push(index);
   //   }
   // });
+
+  console.log("content 🐶");
+  chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    console.log("content 🐶" + message.addedWords);
+    return true;
+  });
 
   //Text
   function replaceText(node) {

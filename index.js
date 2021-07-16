@@ -30,3 +30,21 @@ inputBtn.addEventListener("click", function () {
   localStorage.setItem("newWords", JSON.stringify(newWords));
   render(newWords);
 });
+
+// chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+//   chrome.tabs.sendMessage(
+//     tabs[0].id,
+//     { greeting: "hello" },
+//     function (response) {
+//       console.log(response.farewell);
+//     }
+//   );
+// });
+
+var aValue = localStorage.getItem("newWords");
+console.log("aValue : " + aValue);
+console.log("Hello : 🥳");
+
+chrome.runtime.sendMessage({ message: aValue }, (response) => {
+  console.log(response.words);
+});
