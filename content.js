@@ -1,4 +1,3 @@
-console.log("🐶");
 (function () {
   "use strict";
 
@@ -107,10 +106,22 @@ console.log("🐶");
   //   }
   // });
 
-  console.log("content 🐶");
-  chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    console.log("content 🐶" + message.addedWords);
-    return true;
+  // let theAddedWords = [];
+  // chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  //   console.log("content 🐶" + message.addedWords);
+  //   theAddedWords.push(message.addedWords);
+  //   return true;
+  // });
+
+  chrome.runtime.onMessage.addListener(function (
+    request,
+    sender,
+    sendResponse
+  ) {
+    console.log(request);
+    console.log(request.message + "🐼");
+    // Callback
+    sendResponse({ message: "Content script has received that message ⚡" });
   });
 
   //Text
@@ -134,5 +145,6 @@ console.log("🐶");
   for (var i = 0; i < elements.length; i++) {
     var element = elements[i];
     checkText(element);
+    console.log("🐶");
   }
 })();
