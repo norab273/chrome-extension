@@ -36,7 +36,6 @@ inputBtn.addEventListener("click", function () {
   inputWord.value = "";
   localStorage.setItem("newWords", JSON.stringify(newWords));
   render(newWords);
+  let localStorageContent = localStorage.getItem("newWords");
+  chrome.runtime.sendMessage({ message: localStorageContent });
 });
-
-let localStorageContent = localStorage.getItem("newWords");
-chrome.runtime.sendMessage({ message: localStorageContent });
