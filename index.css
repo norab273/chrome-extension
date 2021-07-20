@@ -1,0 +1,133 @@
+/* General styling */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Poppins";
+  margin: 0;
+}
+
+.popup {
+  background: #fff;
+  height: 47em;
+  width: 320px;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.popup :is(header, .cursor-container) {
+  display: flex;
+  align-items: row;
+  justify-content: space-between;
+}
+
+.popup header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h2 {
+  font-size: 18px;
+  margin: 10px 0px 5px;
+  font-weight: normal;
+}
+hr {
+  border-top: 0.5px solid rgb(150, 150, 150);
+}
+
+header .reset {
+  color: #878787;
+  /* font-size: 17px; */
+  background: #f2f3fb;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.content {
+  margin: 20px 0;
+}
+
+p {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.field button {
+  background: #eeeeee;
+}
+.settings {
+  margin: 5px 0;
+}
+
+.settings {
+  /* background: #f2f3fb; */
+  cursor: pointer;
+}
+
+select {
+  width: 20em;
+}
+
+input {
+  width: 80%;
+}
+
+input[type="submit"] {
+  background-color: #feb1c0;
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-family: "Poppins";
+  border-radius: 0.25em;
+  padding: 1rem;
+  font-size: 1rem;
+  width: 250px;
+  margin-bottom: 2rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+#comebacks-button {
+  background-color: #bbdefb;
+}
+
+#signal-button {
+  background-color: #c5e1a5;
+}
+
+.add {
+  background: white;
+  font-family: "Poppins";
+  padding: 0.5rem;
+  border-radius: 0.25em;
+  margin-top: 0.5rem;
+}
+
+#mask-hate {
+  font-size: 1rem;
+  background: #fff59d;
+  width: 250px;
+  padding: 16px 32px;
+  border-radius: 0.25em;
+}
+
+.new-word {
+  margin-bottom: 1.5rem;
+  margin-left: 1rem;
+}
