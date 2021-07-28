@@ -36,12 +36,25 @@
           </p>
         </div>
 
-        <div class="new-word">
+        <div class="outer-wrapper">
+          <p>Tu peux ajouter d'autres mots à masquer :</p>
+          <div class="new-word">
+            <input type="text" id="input-word" />
+            <button id="add-btn">Ajoute un mot</button>
+            <button id="delete-btn">Tout supprimer</button>
+          </div>
+
+          <div class="word-container">
+            <ul id="word-list"></ul>
+          </div>
+
+
+        <!-- <div class="new-word">
           <label for="new-words">Ajouter un mot à masquer :</label><br />
           <input type="text" id="new-words" name="new-words" /><br />
-          <!-- <input type="text" /><br />
-          <button class="add">Ajouter un mot à masquer</button> -->
-        </div>
+          <input type="text" /><br /> 
+          <button class="add-btn">Ajouter un mot à masquer</button>
+        </div> -->
 
         <div class="button-container">
           <form

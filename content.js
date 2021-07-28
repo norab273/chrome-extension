@@ -106,13 +106,15 @@ let REPLACE = ["🌸"];
 
 //In this tab, listen for a message
 
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+chrome.runtime.onMessage.addListener(addToList);
+
+function addToList(request, sender, sendResponse) {
   let userWords = JSON.parse(request.message);
   BadWords = BadWords.concat(userWords);
   walk(document.body);
   // Callback
   sendResponse({ message: "Content script has received that message ⚡" });
-});
+}
 
 //replace text with emoji
 walk(document.body);
