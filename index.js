@@ -5,92 +5,43 @@ const wordList = document.getElementById("word-list");
 const deleteBtn = document.getElementById("delete-btn");
 let wordsFromLocalStorage = JSON.parse(localStorage.getItem("newWords"));
 
-const addTask = document.querySelector("#addTask");
+// chrome.storage.sync.get(null, function (items) {
+//   console.log(items);
+// });
 
-//check if the list exists
-
-chrome.storage.sync.get("tasks", function (result) {
-  if (result.tasks) {
-    result.tasks.map((task) => {
-      console.log(task);
-    });
-  } else {
-    chrome.storage.sync.set({ tasks: [] });
-  }
+// get the stored data and display it
+chrome.storage.sync.get({ tasks: "" }, (result) => {
+  document.getElementById("list_task").innerHTML = result.tasks;
 });
 
-addTasktoTheList = (task) => {
-  const ul = document.querySelector("#tasksList");
-  const li = document.createElement("li");
+// submitting it
+form = document.forms.myform;
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  list_item = document.getElementById("list_task");
+  var list = document.createElement("li");
+  var listcontent = document.createTextNode(form.task.value);
+  list.appendChild(listcontent);
+  list_item.appendChild(list);
+  form.task.value = "";
 
-  li.innerHTML = task.task;
-  task.complete ? li.classList.add("complete") : "";
-  li.dataset.id = task.id;
-
-  var span = document.createElement("span");
-  span.setAttribute("id", "remove");
-  span.innerHTML = "X";
-  li.append(span);
-  li.addEventListener("click", () => updateComplete(li), "false");
-  span.addEventListener("click", () => removeItem(li));
-  ul.append(li);
-};
-
-const removeItem = (e) => {
-  e.parentNode.removeChild(e);
-
-  const dataId = e.dataset.id;
-
-  chrome.storage.sync.get({ tasks: [] }, function (items) {
-    const updatedList = items.tasks.filter((item) => item.id != dataId);
-    chrome.storage.sync.set({ tasks: updatedList });
+  // save the task
+  tasks = document.getElementById("list_task").innerHTML;
+  chrome.storage.sync.set({ tasks: tasks }, () => {
+    console.log(tasks);
   });
-};
-
-const updateComplete = (e) => {
-  if (e.tagName === "LI") {
-    e.classList.toggle("complete");
-    const dataId = e.dataset.id;
-
-    chrome.storage.sync.get("tasks", function (items) {
-      const updatedList = items.tasks.map((item) => {
-        if (item.id === dataId) {
-          item["complete"] = !item["complete"];
-        }
-        return item;
-      });
-
-      chrome.storage.sync.set({ tasks: updatedList });
-    });
-  }
-};
-
-addTask.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  let task = document.querySelector("#tasks").value;
-
-  if (!task.length) {
-    alert("Please add a task to add");
-  } else {
-    const obj = {
-      task: task,
-      complete: false,
-      id: Date.now(),
-    };
-
-    chrome.storage.sync.get("tasks", function (result) {
-      if (result.tasks) {
-        chrome.storage.sync.set({ tasks: [...result.tasks, obj] });
-      }
-    });
-
-    document.querySelector("#tasks").value = "";
-  }
 });
 
-chrome.storage.sync.get(null, function (items) {
-  console.log(items);
+// marking it as complete
+const ul = document.getElementById("list_task");
+ul.addEventListener("click", function (e) {
+  e.target.classList.toggle("checked");
+
+  //save it
+  tasks = document.getElementById("list_task").innerHTML;
+  chrome.storage.sync.set({ tasks: tasks }, () => {
+    console.log(tasks);
+  });
 });
 
 // initialize();
@@ -127,5 +78,3 @@ chrome.storage.sync.get(null, function (items) {
 //   let localStorageContent = localStorage.getItem("newWords");
 //   chrome.runtime.sendMessage({ message: localStorageContent });
 // });
-
-chrome.storage.sync.remove("data");
