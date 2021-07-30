@@ -5,10 +5,6 @@ const wordList = document.getElementById("word-list");
 const deleteBtn = document.getElementById("delete-btn");
 let wordsFromLocalStorage = JSON.parse(localStorage.getItem("newWords"));
 
-// chrome.storage.sync.get(null, function (items) {
-//   console.log(items);
-// });
-
 // get the stored data and display it
 chrome.storage.sync.get({ tasks: "" }, (result) => {
   document.getElementById("list_task").innerHTML = result.tasks;
@@ -42,6 +38,16 @@ ul.addEventListener("click", function (e) {
   chrome.storage.sync.set({ tasks: tasks }, () => {
     console.log(tasks);
   });
+});
+
+document.getElementById("reset").addEventListener("click", () => {
+  chrome.storage.sync.set({ tasks: "" }, () => {
+    console.log("Data Reset");
+  });
+});
+
+chrome.storage.sync.get(null, function (items) {
+  console.log(items);
 });
 
 // initialize();
