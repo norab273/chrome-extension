@@ -153,6 +153,10 @@ function replaceText(textNode) {
   textNode.nodeValue = v;
 }
 
-chrome.storage.sync.get("tasks", function (items) {
-  console.log("content 🌸" + items);
-});
+// chrome.storage.sync.get("tasks", function (items) {
+//   console.log(items);
+// });
+
+// chrome.storage.sync.get("key", function (items) {
+//   console.log(items);
+// });

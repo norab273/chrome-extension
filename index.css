@@ -111,6 +111,10 @@ input[type="submit"] {
   background-color: #c5e1a5;
 }
 
+#mask-button {
+  background-color: #fff59d;
+}
+
 .add {
   background: white;
   font-family: "Poppins";
