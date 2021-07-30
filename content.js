@@ -152,3 +152,7 @@ function replaceText(textNode) {
 
   textNode.nodeValue = v;
 }
+
+chrome.storage.sync.get("task", function (items) {
+  console.log(items);
+});

@@ -36,7 +36,7 @@
           </p>
         </div>
 
-        <div class="outer-wrapper">
+        <!-- <div class="outer-wrapper">
           <p>Tu peux ajouter d'autres mots à masquer :</p>
           <div class="new-word">
             <input type="text" id="input-word" />
@@ -46,8 +46,7 @@
 
           <div class="word-container">
             <ul id="word-list"></ul>
-          </div>
-
+          </div> -->
 
         <!-- <div class="new-word">
           <label for="new-words">Ajouter un mot à masquer :</label><br />
@@ -88,8 +87,30 @@
             <br />
           </form>
         </div>
+
+        <div class="container">
+          <div id="main">
+       
+            <div id="formContainer">
+              <form id="tasksForm">
+                <div>
+                  <label>What tasks would you like to track today?</label>
+                  <input type="text" aria-describedby="tasks" id="tasks" />
+                  <button type="submit" id="addTask">
+                    Add Task
+                  </button>
+                </div>
+              </form>
+            </div>
+       
+            <div id="listContainer">
+              <ul id="tasksList"></ul>
+            </div>
+          </div>
+
       </div>
       <script src="index.js"></script>
+      <script src="content.js"></script>
     </div>
   </body>
 </html>
