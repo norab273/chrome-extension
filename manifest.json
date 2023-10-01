@@ -6,7 +6,7 @@
     "default_popup": "index.html",
     "default_icon": "shield.png"
   },
-  "permissions": ["tabs", "storage", "activeTab"],
+  "permissions": ["storage"],
   "content_scripts": [
     {
       "matches": ["*://*/*"],
