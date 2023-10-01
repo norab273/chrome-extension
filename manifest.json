@@ -6,16 +6,19 @@
     "default_popup": "index.html",
     "default_icon": "shield.png"
   },
-  "permissions": ["tabs", "storage"],
+  "permissions": ["tabs", "storage", "activeTab"],
   "content_scripts": [
     {
       "matches": ["*://*/*"],
       "css": ["style.css"],
-      "js": ["content.js"],
+      "js": ["replaceBadWords.js"],
       "run_at": "document_end"
     }
   ],
-  "background": {
-    "service_worker": "background.js"
-  }
+  "web_accessible_resources": [
+    {
+      "resources": ["badWords.json"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }

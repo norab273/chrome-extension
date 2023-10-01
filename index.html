@@ -14,11 +14,19 @@
   </head>
   <body>
     <div class="popup">
-      <div class="content">
+      <div class="HScontent">
+        <div class="switchContainer">
+          <p>masquer des mots :</p>
+          <label class="switch">
+            <input type="checkbox" id="toggleReplace" />
+            <span class="slider round"></span>
+          </label>
+          <span id="statusText" class="status-text"></span>
+        </div>
         <div class="button-container">
           <form
             class="settings"
-            action="settings.html"
+            action="Menu/extensionMenu.html"
             method="post"
             target="_blank"
           >
@@ -26,33 +34,23 @@
           </form>
         </div>
 
-        <div class="button-container">
-          <input id="mask-button" type="submit" value="Ajouter des mots" />
-        </div>
+        <div class="button-container addWordButton">
+          <button id="mask-button">Ajouter des mots</button>
 
-        <!-- <div class="outer-wrapper">
-          <p>Tu peux ajouter d'autres mots à masquer :</p>
-          <div class="new-word">
-            <input type="text" id="input-word" />
-            <button id="add-btn">Ajoute un mot</button>
-            <button id="delete-btn">Tout supprimer</button>
+          <div class="outer-wrapper">
+            <div class="new-word">
+              <p>Tu peux ajouter des mots à masquer :</p>
+              <input type="text" id="input-word" />
+              <button id="add-btn">Ajouter un mot</button>
+              <button id="delete-btn">Supprimer les mots personnalisés</button>
+            </div>
           </div>
-
-          <div class="word-container">
-            <ul id="word-list"></ul>
-          </div> -->
-
-        <!-- <div class="new-word">
-          <label for="new-words">Ajouter un mot à masquer :</label><br />
-          <input type="text" id="new-words" name="new-words" /><br />
-          <input type="text" /><br /> 
-          <button class="add-btn">Ajouter un mot à masquer</button>
-        </div> -->
+        </div>
 
         <div class="button-container">
           <form
             class="comebacks"
-            action="comebacks.html"
+            action="Comebacks/comebacks.html"
             method="post"
             target="_blank"
           >
@@ -81,22 +79,9 @@
             <br />
           </form>
         </div>
-
-        <form name="myform">
-          <input
-            type="text"
-            name="task"
-            id="task_input"
-            placeholder="Enter your task here"
-            required
-          />
-          <button type="submit" id="add_button">Add</button>
-          <button id="reset">Reset</button>
-        </form>
-        <ul id="list_task"></ul>
       </div>
       <script src="index.js"></script>
-      <script src="content.js"></script>
+      <script src="replaceBadWords.js"></script>
     </div>
   </body>
 </html>

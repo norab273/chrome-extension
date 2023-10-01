@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+
+  <body class="HSbody">
+    <div class="HScontainer">
+      <h1 class="topic">Menu</h1>
+
+      <div class="HScontent">
+        <input class="leftMenuItem" type="radio" name="slider" checked id="general" />
+        <input class="leftMenuItem" type="radio" name="slider" id="racism" />
+        <input class="leftMenuItem" type="radio" name="slider" id="sexism" />
+        <input class="leftMenuItem" type="radio" name="slider" id="lgbt" />
+        <div class="list">
+          <label for="general" class="general">
+            <span class="title">Masquer</span>
+          </label>
+          <label for="racism" class="racism">
+            <span class="title">Répondre</span>
+          </label>
+          <label for="sexism" class="sexism">
+            <span class="title">Signaler</span>
+          </label>
+          <label for="lgbt" class="lgbt">
+            <span class="title">Ressources</span>
+          </label>
+          <div class="slider"></div>
+        </div>
+      
+        <div class="text-content">
+          <div class="general text">
+            <div class="title">Masquer la haine en ligne</div>
+              <p class="grid-container">
+                <p>
+                  Le bouclier remplace les insultes racistes, sexistes et homophobes par
+                  des 🌸
+                </p>
+                <details>
+                  <summary class="masqueHaine">
+                    Liste des mots automatiquement masqués
+                  </summary>
+                  <div class="insult">
+                    <p id="badWordsList"></p>
+                  </div>
+                </details>
+        
+                <details open>
+                  <summary class="masqueHaine">
+                    Liste de vos mots ajoutés masqués
+                  </summary>
+                  <div class="insult">
+                    <ul id="customWordsList"></ul>
+                  </div>
+                  <div class="outer-wrapper">
+                    <div class="new-word">
+                      <p>Tu peux ajouter des mots à masquer :</p>
+                      <input type="text" id="input-word" />
+                      <button id="add-btn">Ajouter un mot</button>
+                      <button id="delete-btn">Supprimer tous les mots personnalisés</button>
+                    </div>
+                  </div>
+                </details>
+              </p>
+          </div>
+          <div class="racism text">
+            <div class="title">Répondre à la haine en ligne</div>
+              <p>
+                Les discours haineux constituent une menace pour la démocratie, car ils peuvent empêcher celles et ceux qui sont visés de participer au débat public. Le bouclier fait des propositions pour répondre aux discriminations et à la haine en ligne. <br><br>
+                Les propositions sont en partie basées sur les recherches menées par l'EPFZ et l'Université de Zurich dans le cadre du projet <a href="https://stophatespeech.ch/fr/pages/mitmachen">Stop Hate Speech</a>. Ce projet étudie l’efficacité du contre-discours à la haine et teste les différentes stratégies de contre-discours (humour, faits, droit...). Dans la <a href="https://www.pnas.org/doi/10.1073/pnas.2116310118">première étude</a> publiée en décembre 2021, la recherche a montré que répondre avec empathie pour les personnes ciblées par le discours de haine réduisait de manière significative le phénomène. Par rapport au groupe témoin, les auteur·es de tweets haineux ont posté environ un tiers de commentaires racistes ou xénophobes en moins après une telle intervention induisant de l'empathie. De plus, la probabilité qu'un tweet haineux soit supprimé par son auteur·e a augmenté de manière significative. En revanche, le recours à l'humour ou les avertissements sur les conséquences possibles ont peu d'effets.<br><br>
+                Le bouclier propose tout de même des réponses basées sur les faits et les avertissements sur les conséquences possibles car les études ne montrent pas si ce type de réponses a des effets positifs sur les personnes victimes de commentaires haineux qui pourraient se sentir soutenues par ces commentaires. Il n'y a pas non plus d'études qui montrent l'effet que ces commentaires pourraient avoir sur des personnes qui ne postent pas de commentaires haineux mais qui peuvent être influencées par ce qu'elles lisent sur internet.<br>
+              </p>
+              <div id="btn-container">
+                  <form class="comebacks" id="yellow-form" action="/Comebacks/comebacks.html" method="post">
+                      <input type="submit" class="btn" id="yellow" value="Répondre" />
+                  </form>
+              </div>
+          </div>
+          <div class="sexism text">
+            <div class="title">Signaler la haine en ligne</div>
+              <p class="grid-container">
+                <p>
+                  Vous pouvez signaler les contenus racistes, sexistes et homophobes sur
+                  la plateforme PHAROS.
+                </p>
+                <div id="btn-container">
+                  <form
+                    class="report"
+                    action="https://www.internet-signalement.gouv.fr/PortailWeb/planets/SignalerEtapeInformer!load.action"
+                    method="post"
+                    target="_blank"
+                  >
+                    <input type="submit" class="btn" value="Signaler" /> <br />
+                  </form>
+                </div>
+            </p>
+          </div>
+          <div class="lgbt text">
+            <div class="title">Ressources</div>
+            <ul class="">
+              <li> Recherches menées par l'EPFZ et l'Université de Zurich dans le cadre du projet Stop Hate Speech :<br />
+                <a href="https://stophatespeech.ch/fr/pages/wie-antworte-ich-auf-hate-speech">https://stophatespeech.ch/fr/pages/wie-antworte-ich-auf-hate-speech</a>
+                <a href=" https://www.pnas.org/doi/10.1073/pnas.2116310118"> https://www.pnas.org/doi/10.1073/pnas.2116310118</a>
+               </li><br />
+                <li> Article sur le racisme en ligne par le musée de l'holocaust :<br />
+                  <a href=" https://museeholocauste.ca/fr/ressources-et-formations/comment-faire-face-au-racisme-en-ligne/"> https://museeholocauste.ca/fr/ressources-et-formations/comment-faire-face-au-racisme-en-ligne/</a>
+                 </li><br />
+                <li>Article de l'association Egalité contre le racisme :<br />
+                  <a href=" https://egalitecontreracisme.fr/je-veux-me-defendre/tenu-mon-encontre-des-propos-racistes/sur-internet-ou-dans-une-application-la-0"> https://egalitecontreracisme.fr/je-veux-me-defendre/tenu-mon-encontre-des-propos-racistes/sur-internet-ou-dans-une-application-la-0</a>
+                 </li><br />
+                <li>Rapport sur les violences sexuelles : <br />
+                  <a href="https://www.ciivise.fr/wp-content/uploads/2023/06/Avis-Le-cout-du-deni_VFpdf-1.pdf">https://www.ciivise.fr/wp-content/uploads/2023/06/Avis-Le-cout-du-deni_VFpdf-1.pdf</a>
+                  </li><br />
+                <li>Haute Autorité de Santé : <br />
+                  <a href="https://www.has-sante.fr/upload/docs/application/pdf/2022-09/reco454_cadrage_trans_mel.pdf">https://www.has-sante.fr/upload/docs/application/pdf/2022-09/reco454_cadrage_trans_mel.pdf</a>
+                  </li><br />
+            </ul>
+          </div>
+        </div>
+    </div>
+  <script src="extensionMenu.js"></script>
+  </body>
+</html>

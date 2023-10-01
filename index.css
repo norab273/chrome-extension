@@ -1,48 +1,28 @@
-/* General styling */
+/* Import and Reset */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  font-family: "Poppins";
-  margin: 0;
-}
-
+/* Popup Styles */
 .popup {
+  font-family: "Poppins";
   background: #fff;
-  height: 47em;
+  height: 100%;
   width: 320px;
   padding: 25px;
   border-radius: 15px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
-
 .popup :is(header, .cursor-container) {
   display: flex;
   align-items: row;
   justify-content: space-between;
 }
-
 .popup header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
-h2 {
-  font-size: 18px;
-  margin: 10px 0px 5px;
-  font-weight: normal;
-}
-hr {
-  border-top: 0.5px solid rgb(150, 150, 150);
-}
-
-header .reset {
+.popup header .reset {
   color: #878787;
-  /* font-size: 17px; */
   background: #f2f3fb;
   height: 30px;
   width: 30px;
@@ -53,164 +33,155 @@ header .reset {
   cursor: pointer;
 }
 
-.content {
-  margin: 20px 0;
-}
-
-p {
+.popup p {
   font-size: 12px;
-  font-weight: normal;
+  margin-bottom: 5px;
+}
+.popup h2 {
+  font-size: 18px;
+  margin: 10px 0 5px;
+}
+.popup hr {
+  border-top: 0.5px solid rgb(150, 150, 150);
 }
 
-.field button {
-  background: #eeeeee;
-}
-.settings {
-  margin: 5px 0;
-}
-
-.settings {
-  /* background: #f2f3fb; */
-  cursor: pointer;
-}
-
-select {
-  width: 20em;
-}
-
-input {
-  width: 80%;
-}
-
-input[type="submit"] {
+/* Button Styles */
+.button-container input[type="submit"],
+.button-container button,
+#add-btn,
+#delete-btn {
   background-color: #feb1c0;
-  border: none;
   color: black;
   padding: 16px 32px;
-  text-decoration: none;
-  margin: 4px 2px;
+  border: none;
   cursor: pointer;
-  font-family: "Poppins";
   border-radius: 0.25em;
-  padding: 1rem;
   font-size: 1rem;
-  width: 250px;
-  margin-bottom: 2rem;
+  width: 100%;
+}
+.button-container input[type="submit"],
+.button-container button {
+  margin: 10px 0;
 }
 
-.button-container {
-  display: flex;
-  justify-content: center;
+#add-btn {
+  background-color: #61a9e3;
+  padding: 8px 16px;
+  margin: 0;
+  width: 80%;
+}
+#delete-btn {
+  background-color: #f56f6f;
+  padding: 8px 16px;
+  margin: 0;
+  width: 80%;
 }
 
 #comebacks-button {
   background-color: #bbdefb;
 }
-
 #signal-button {
   background-color: #c5e1a5;
 }
-
 #mask-button {
   background-color: #fff59d;
 }
 
-.add {
-  background: white;
-  font-family: "Poppins";
-  padding: 0.5rem;
-  border-radius: 0.25em;
-  margin-top: 0.5rem;
+/* New Words Section */
+.outer-wrapper {
+  margin-bottom: 20px;
 }
-
-#mask-hate {
-  font-size: 1rem;
-  background: #fff59d;
-  width: 250px;
-  padding: 16px 32px;
-  border-radius: 0.25em;
-}
-
 .new-word {
-  margin-bottom: 1.5rem;
-  margin-left: 1rem;
-}
-
-/* new css */
-
-input {
-  width: 100%;
-  padding: 10px 0;
-  font-size: 16px;
-  color: black;
-  margin-bottom: 30px;
-  border: none;
-  border-bottom: 1px solid #black;
-  outline: none;
-  background: transparent;
-}
-#add_button {
-  padding: 0.35em 1.2em;
-  border: 0.1em solid black;
-  margin: 0 0.3em 0.3em 0;
-  border-radius: 0.12em;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  color: grey;
-  text-align: center;
-  transition: all 0.2s;
-}
-#add_button:hover {
-  color: #000000;
-  background-color: #ffffff;
-}
-/* List */
-ul {
-  counter-reset: index;
-  padding: 0;
-  max-width: 300px;
-}
-
-/* List element */
-li {
-  counter-increment: index;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 12px 0;
-  box-sizing: border-box;
+  gap: 10px;
+  padding: 0 10px;
+}
+#input-word {
+  flex: 1;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  outline: none;
 }
 
-/* Element counter */
-li::before {
-  content: counters(index, ".", decimal-leading-zero);
-  font-size: 1.5rem;
-  text-align: right;
-  font-weight: bold;
-  min-width: 50px;
-  padding-right: 12px;
-  font-variant-numeric: tabular-nums;
-  align-self: flex-start;
-  background-image: linear-gradient(to bottom, aquamarine, orangered);
-  background-attachment: fixed;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Hidden Class */
+.hidden {
+  display: none;
 }
 
-/* Element separation */
-li + li {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+.switchContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  align-items: center;
 }
-ul li.checked::before {
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-left: 10px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ca2222;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
   content: "";
-  border-color: ForestGreen;
-  border-style: solid;
-  border-width: 0 3px 3px 0;
-  min-width: 10px;
-  transform: rotate(45deg);
-  height: 5px;
-  width: 10px;
-  padding: 2px;
-  margin: 8px;
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2ab934;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.status-text {
+  margin-left: 10px;
 }

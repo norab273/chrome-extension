@@ -1,61 +1,37 @@
-let newWords = [];
 const inputWord = document.getElementById("input-word");
-const inputBtn = document.getElementById("add-btn");
-const wordList = document.getElementById("word-list");
 const deleteBtn = document.getElementById("delete-btn");
 const maskButton = document.getElementById("mask-button");
-let wordsFromLocalStorage = JSON.parse(localStorage.getItem("newWords"));
+const addBtn = document.getElementById("add-btn");
+const outerWrapper = document.querySelector(".outer-wrapper");
 
-maskButton.addEventListener("click", function () {
-  alert("Coming soon! Vous pourrez bientôt rajouter des mots à masquer");
+// Charger les mots à partir de chrome.storage s'ils existent
+chrome.storage.sync.get(["customWords"], function (result) {
+  let customWords = result.customWords || [];
 });
 
-// // get the stored data and display it
-// chrome.storage.sync.get({ tasks: "" }, (result) => {
-//   document.getElementById("list_task").innerHTML = result.tasks;
-// });
+// Événement pour ajouter un nouveau mot
+addBtn.addEventListener("click", function () {
+  const newWord = inputWord.value.trim().toLowerCase();
+  chrome.storage.sync.get(["customWords"], function (result) {
+    let customWords = result.customWords || [];
+    if (newWord && !customWords.includes(newWord)) {
+      customWords.push(newWord);
+      chrome.storage.sync.set({ customWords: customWords }, function () {
+        inputWord.value = "";
+      });
+    }
+  });
+});
 
-// // submitting it
-// form = document.forms.myform;
-// form.addEventListener("submit", (event) => {
-//   event.preventDefault();
-//   list_item = document.getElementById("list_task");
-//   var list = document.createElement("li");
-//   var listcontent = document.createTextNode(form.task.value);
-//   let newWord = form.task.value;
-//   list.appendChild(listcontent);
-//   list_item.appendChild(list);
-//   chrome.storage.sync.set({ tasks: newWord }, () => {
-//     console.log(tasks);
-//   });
-//   form.task.value = "";
+// Événement pour supprimer tous les mots
+deleteBtn.addEventListener("click", function () {
+  chrome.storage.sync.set({ customWords: [] }, function () {});
+});
 
-//   // save the task
-//   tasks = document.getElementById("list_task").innerHTML;
-// });
-
-// // marking it as complete
-// const ul = document.getElementById("list_task");
-// ul.addEventListener("click", function (e) {
-//   e.target.classList.toggle("checked");
-
-//   //save it
-//   tasks = document.getElementById("list_task").innerHTML;
-//   chrome.storage.sync.set({ tasks: tasks }, () => {
-//     console.log(tasks);
-//   });
-// });
-
-// document.getElementById("reset").addEventListener("click", () => {
-//   chrome.storage.sync.set({ tasks: "" }, () => {
-//     console.log("Data Reset");
-//   });
-// });
-
-// chrome.storage.sync.get(null, function (items) {
-//   console.log(items);
-// });
-
-// chrome.storage.sync.set({
-//   key: ["create an extension", "drink a glass of water"],
-// });
+document.addEventListener("DOMContentLoaded", function () {
+  const outerWrapper = document.querySelector(".outer-wrapper");
+  outerWrapper.classList.add("hidden");
+  maskButton.addEventListener("click", function () {
+    outerWrapper.classList.toggle("hidden");
+  });
+});

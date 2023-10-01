@@ -1,0 +1,384 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+.HSbody {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #dad3f8;
+}
+
+.HScontainer {
+  height: 85%;
+  width: 95%;
+  padding: 40px 50px 40px 40px;
+  background: #fff;
+  margin: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  overflow: scroll;
+}
+.HScontainer .topic {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  overflow: scroll;
+}
+
+#backToMenu {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.HScontent {
+  display: flex;
+  align-items: top;
+  justify-content: space-between;
+  overflow: scroll;
+}
+.HScontent .list {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  margin-right: 50px;
+  margin-top: 50px;
+  position: relative;
+  overflow: scroll;
+}
+.HScontent .list label {
+  height: 60px;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 60px;
+  cursor: pointer;
+  padding-left: 25px;
+  transition: all 0.5s ease;
+  color: #333;
+  z-index: 12;
+  overflow: scroll;
+}
+#general:checked ~ .list label.general,
+#racism:checked ~ .list label.racism,
+#sexism:checked ~ .list label.sexism,
+#lgbt:checked ~ .list label.lgbt,
+#about:checked ~ .list label.about {
+  color: #fff;
+}
+.HScontent .list label:hover {
+  color: #6d50e2;
+}
+.HScontent .slider {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 60px;
+  width: 100%;
+  border-radius: 12px;
+  background: #6d50e2;
+  transition: all 0.4s ease;
+}
+#general:checked ~ .list .slider {
+  top: 0;
+}
+#racism:checked ~ .list .slider {
+  top: 60px;
+}
+#sexism:checked ~ .list .slider {
+  top: 120px;
+}
+#lgbt:checked ~ .list .slider {
+  top: 180px;
+}
+#about:checked ~ .list .slider {
+  top: 240px;
+}
+.HScontent .text-content {
+  width: 80%;
+  height: 100%;
+}
+.HScontent .text {
+  display: none;
+}
+.HScontent .text .title {
+  font-size: 25px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.HScontent .text p {
+  text-align: justify;
+  overflow: scroll;
+  font-size: 16px;
+  line-height: 25px;
+}
+.HScontent .text-content .general {
+  display: block;
+}
+#general:checked ~ .text-content .general,
+#racism:checked ~ .text-content .racism,
+#sexism:checked ~ .text-content .sexism,
+#lgbt:checked ~ .text-content .lgbt,
+#about:checked ~ .text-content .about {
+  display: block;
+}
+#racism:checked ~ .text-content .general,
+#sexism:checked ~ .text-content .general,
+#lgbt:checked ~ .text-content .general,
+#about:checked ~ .text-content .general {
+  display: none;
+}
+.HScontent .leftMenuItem {
+  display: none;
+}
+
+.grid {
+  min-height: 50vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+  overflow-y: scroll;
+}
+
+.grid-container {
+  max-height: 80%;
+  overflow: hidden;
+}
+
+.grid article {
+  cursor: pointer;
+  padding: 1rem;
+  font-size: 1rem;
+  text-align: left;
+  color: black;
+  border-radius: 0.25em;
+}
+
+.copied {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 5px;
+  border-radius: 0.25em;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.message-anti-racisme {
+  background: #bbdefb;
+}
+
+.message-anti-sexisme {
+  background: #c5e1a5;
+}
+
+.message-LGBT {
+  background: #fff59d;
+}
+
+.message-general {
+  background: #ffb4ba;
+}
+
+.desktop {
+  display: block;
+}
+.mobile {
+  display: none;
+}
+
+.button::selection {
+  background: #6d50e2;
+  color: #fff;
+}
+
+/* Listes déroulantes */
+.grid-container details {
+  border: 1px solid #d6d6d6;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 1rem 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.masqueHaine {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #444;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+.insult {
+  padding: 0.5rem 0;
+  border-top: 1px solid #d6d6d6;
+  margin-top: 1rem;
+}
+
+.insult p {
+  list-style-type: square;
+  margin-left: 1.5rem;
+}
+
+.grid-container details,
+.masqueHaine {
+  transition: all 0.3s ease;
+}
+
+.grid-container details:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.grid-container details[open] .masqueHaine {
+  color: #007bff;
+}
+
+/* Stylisation bouton */
+#btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.btn {
+  background-color: #ffca28;
+  color: #444;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #ffd54f;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+#input-word {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  outline: none;
+}
+
+/* Button Styles */
+.button-container input[type="submit"],
+.button-container button,
+#add-btn,
+#delete-btn {
+  background-color: #feb1c0;
+  color: black;
+  padding: 16px 32px;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.25em;
+  font-size: 1rem;
+}
+.button-container input[type="submit"],
+.button-container button {
+  margin: 10px 0;
+}
+
+.delete-btn {
+  background-color: #f56f6f;
+  padding: 8px 16px;
+  margin: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.25em;
+  font-size: 0.8rem;
+}
+
+#add-btn {
+  background-color: #61a9e3;
+  padding: 8px 16px;
+  margin: 0;
+}
+#delete-btn {
+  background-color: #f56f6f;
+  padding: 8px 16px;
+  margin: 0;
+}
+
+@media (max-width: 800px) {
+  .HScontainer {
+    padding: 5%;
+  }
+  .HScontent {
+    display: block;
+  }
+
+  .text-content .title {
+    display: none;
+  }
+
+  .HScontent .list,
+  .HScontent .text-content {
+    width: 100%;
+  }
+
+  .HScontent .list {
+    margin: 10px 5px 20px 0;
+  }
+
+  .HScontent .list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .list .general,
+  .list .racism,
+  .list .sexism,
+  .list .lgbt {
+    display: block; /* Assurez-vous que les labels s'affichent en tant que blocs pour remplir toute la cellule de la grille */
+    padding: 10px; /* Espace intérieur pour les labels */
+    border: 1px solid #ccc; /* Une bordure simple pour les distinguer */
+    border-radius: 5px; /* Coins arrondis */
+    text-align: center; /* Centre le texte à l'intérieur */
+  }
+
+  .HScontent .list label {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 16px;
+  }
+  #general:checked ~ .list label.general,
+  #racism:checked ~ .list label.racism,
+  #sexism:checked ~ .list label.sexism,
+  #lgbt:checked ~ .list label.lgbt {
+    background: #6d50e2;
+    color: #fff;
+  }
+
+  .slider {
+    display: none;
+  }
+
+  .text-content {
+    margin-top: 20px;
+  }
+
+  .mobile {
+    display: block;
+  }
+  .desktop {
+    display: none;
+  }
+}

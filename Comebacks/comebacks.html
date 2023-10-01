@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+
+  <body class="HSbody">
+    <div class="HScontainer">
+      <h1 class="topic">Répondre à la haine.</h1>
+      <a id="backToMenu" href="/Menu/extensionMenu.html">< retour au menu</a>
+      <p class="desktop">Cliquez sur une réponse pour la copier</p>
+      <p class="desktop">La recherche a montré que répondre avec empathie pour les personnes ciblées par le discours de haine réduisait de manière significative le phénomène. Voir le <a href="/Menu/extensionMenu.html">menu</a> pour plus d'informations</p>
+      <div class="HScontent">
+        <input class="leftMenuItem" type="radio" name="slider" checked id="general" />
+        <input class="leftMenuItem" type="radio" name="slider" id="racism" />
+        <input class="leftMenuItem" type="radio" name="slider" id="sexism" />
+        <input class="leftMenuItem" type="radio" name="slider" id="lgbt" />
+        <div class="list">
+          <label for="general" class="general">
+            <span class="title">Général</span>
+          </label>
+          <label for="racism" class="racism">
+            <span class="title">Racisme</span>
+          </label>
+          <label for="sexism" class="sexism">
+            <span class="title">Sexisme</span>
+          </label>
+          <label for="lgbt" class="lgbt">
+            <span class="title">LGBT+</span>
+          </label>
+          <div class="slider"></div>
+        </div>
+        <p class="mobile">Cliquez sur une réponse pour la copier</p>
+      <div class="text-content">
+        <div class="general text">
+          <div class="title">Général</div>
+            <p class="grid-container">
+              <section class="grid" id="general-container">
+              </section>
+              <p class="alert-message"></p>
+            </p>
+        </div>
+
+          <div class="racism text">
+            <div class="title">Racisme</div>
+            <p class="grid-container">
+              <section class="grid" id="anti-racisme-container">
+              </section>
+          </p>
+        </div>
+
+        <div class="sexism text">
+          <div class="title">Sexisme</div>
+            <p class="grid-container">
+              <section class="grid" id="anti-sexisme-container">
+            </section>
+          </p>
+        </div>
+
+        <div class="lgbt text">
+          <div class="title">Haine anti-LGBT+</div>
+          <p class="grid-container">
+            <section class="grid" id="LGBT-container">
+            </section>
+          </p>
+        </div>
+      </div>
+    </div>
+  <script src="comebacks.js"></script>
+  </body>
+</html>
